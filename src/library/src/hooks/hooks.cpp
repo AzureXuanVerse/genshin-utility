@@ -7,17 +7,17 @@ namespace {
 Hooks* inst = nullptr;
 
 template <auto>
-struct HookFuncProxy;
+struct HooksFuncProxy;
 
 template <typename ReturnType, typename... Args, ReturnType(Hooks::*FuncPtr)(Args...)>
-struct HookFuncProxy<FuncPtr> {
+struct HooksFuncProxy<FuncPtr> {
   static ReturnType Func(Args... args) {
     return (inst->*FuncPtr)(std::forward<Args>(args)...);
   }
 };
 
 template <auto FuncPtr>
-auto Proxy = &HookFuncProxy<FuncPtr>::Func;
+auto Proxy = &HooksFuncProxy<FuncPtr>::Func;
 
 }
 
