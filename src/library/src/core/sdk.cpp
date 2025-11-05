@@ -25,12 +25,12 @@ void Sdk::InitStarRail() {
   const auto game_assembly = (uintptr_t)GetModuleHandleA("GameAssembly.dll");
   const auto unity_player = (uintptr_t)GetModuleHandleA("UnityPlayer.dll");
 
-  funcs_.set_field_of_view = unity_player + 0xef6ff0;
-  funcs_.set_target_frame_rate = game_assembly + 0x13b331a0;
-  funcs_.quit = game_assembly + 0x13b32cd0;
-  funcs_.set_vsync_count = game_assembly + 0x13b73f60;
-  funcs_.enter = game_assembly + 0xdd61f60;
-  funcs_.leave = game_assembly + 0xdd65740;
+  funcs_.set_field_of_view = unity_player + 0xf28c00;
+  funcs_.set_target_frame_rate = game_assembly + 0x154c9910;
+  funcs_.quit = game_assembly + 0x154c9440;
+  funcs_.set_vsync_count = game_assembly + 0x1550a870;
+  funcs_.enter = game_assembly + 0x7497160;
+  funcs_.leave = game_assembly + 0x749ad70;
 
   is_star_rail_ = true;
 }
